@@ -1,0 +1,177 @@
+body * {
+	/*border: 1px solid orange;*/
+}
+
+li {
+	list-style: none;
+}
+
+.row_container {
+	/*overflow: auto;*/
+	text-align: center;
+}
+
+.product_container {
+	display: inline-block;
+	vertical-align: top;
+	width: 19vw;
+	min-width: 120px;
+	max-width: 200px;
+}
+
+.card {
+	padding: 10px;
+	position: relative;
+	margin-left: -10px;
+	cursor: pointer;
+}
+
+.card:hover {
+	width: 130%;
+	z-index: 1;
+	background-color: white;
+	box-shadow: 5px 5px 10px black;
+	top: 50px;
+}
+
+.card:hover .description {
+	display: block;
+}
+
+.card:hover .image {
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.card:hover img {
+	position: static;
+}
+
+.image {
+	position: relative;
+	height: 250px;
+}
+
+.image img {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.description {
+	display: none;
+}
+
+input[name="row"] {
+	display: none;
+}
+
+input[name="row"]:checked + label .image
+ {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+}
+
+input[name="row"]:checked + label img
+ {
+	position: fixed;
+	/*margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;*/
+	max-width: 75%;
+	height: auto;
+	max-height: 75%;
+	width: auto;
+}
+
+input[name="row"]:checked + label .description
+ {
+ 	display: none;
+ }
+
+input[name="row"]:checked + label .card:hover {
+ 	box-shadow: none;
+ }
+
+label[for="unchecked"] {
+	display: none;
+	transform: rotate(45deg);
+	font-size: 50px;
+	font-weight: 900;
+	user-select: none;
+	color: white;
+	position: fixed;
+	top: 25px;
+	right: 50px;
+	z-index: 3;
+}
+
+input[name="row"]:checked ~ label[for="unchecked"] {
+	display: block;
+}
+
+#list_01:checked ~ .row_container .product_container:nth-of-type(n+5) {
+	display: none;
+}
+
+#list_02:checked ~ .row_container .product_container:nth-of-type(n+8),
+#list_02:checked ~ .row_container .product_container:nth-of-type(-n+3)
+{
+	display: none;
+}
+
+#list_03:checked ~ .row_container .product_container:nth-of-type(n+11),
+#list_03:checked ~ .row_container .product_container:nth-of-type(-n+6)
+{
+	display: none;
+}
+
+#list_04:checked ~ .row_container .product_container:nth-of-type(n+14),
+#list_04:checked ~ .row_container .product_container:nth-of-type(-n+9)
+{
+	display: none;
+}
+
+#list_05:checked ~ .row_container .product_container:nth-of-type(n+17),
+#list_05:checked ~ .row_container .product_container:nth-of-type(-n+12)
+{
+	display: none;
+}
+
+#list_06:checked ~ .row_container .product_container:nth-of-type(n+20),
+#list_06:checked ~ .row_container .product_container:nth-of-type(-n+15)
+{
+	display: none;
+}
+
+main {
+	text-align: center;
+	min-width: 600px;
+}
+
+input[name="list"] {
+	position: relative;
+	top: 300px;
+}
+
+header, footer {
+	text-align: center;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 20px;
+}

@@ -1,0 +1,298 @@
+body {
+	font-family: arial;
+	margin: 0 auto;
+	min-height: 100vh;
+	/*width: 980px;*/
+	max-width: 980px;
+	min-width: 720px;
+	display: grid;
+	grid-template-columns: 200px 1fr 200px;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas: 
+	'h h h'
+	'a_left m a_right'
+	'f f f';
+}
+
+body > header {
+	grid-area: h;
+}
+
+header > h1 {
+	text-align: center;
+}
+
+main {
+	grid-area: m;
+}
+
+.left_sidebar {
+	grid-area: a_left;
+	margin: 5px 5px 5px 0px;
+	background-color: lightgray;
+}
+
+.right_sidebar {
+	grid-area: a_right;
+}
+
+body > footer {
+	grid-area: f;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.tile {
+	list-style: none;
+	margin: 0;
+	height: 200px;
+	box-sizing: border-box;
+	padding: 5px;
+	flex-basis: 33.33%;
+	position: relative;
+	order: 1;
+}
+
+.tile img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	margin: 0;
+}
+
+.tile:nth-child(4n-2) {
+	flex-basis: 66.66%;
+}
+
+.tile:nth-child(8n) {
+	flex-basis: 99.99%;
+}
+
+.tile:hover::before {
+	position: absolute;
+	bottom: 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	font-size: 20px;
+	display: block;
+	content: attr(data-name);
+}
+
+address {
+	display: inline;
+	font-style: normal;
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0;
+}
+
+.hor_line {
+	border-bottom: 1px solid gray;
+	margin: 10px 0;
+}
+
+.category {
+	display: block;
+	background-color: lightgray;
+	padding: 20px 10px;
+	border-bottom: 1px solid gray;
+}
+
+.category:hover {
+	background-color: dimgray;
+	color: white;
+}
+
+input[name="cat_category"] {
+	display: none;
+}
+
+.tile {
+	opacity: 1;
+}
+
+/*#cat_0_radio:checked ~ main .tile {
+	opacity: 1;
+}*/
+
+#cat_1_radio:checked ~ main .tile,
+#cat_2_radio:checked ~ main .tile,
+#cat_3_radio:checked ~ main .tile,
+#cat_4_radio:checked ~ main .tile {
+	opacity: 0.3;
+}
+
+#cat_1_radio:checked ~ main .cat_1,
+#cat_2_radio:checked ~ main .cat_2,
+#cat_3_radio:checked ~ main .cat_3,
+#cat_4_radio:checked ~ main .cat_4 {
+	opacity: 1;
+}
+
+#cat_1_radio:checked ~ aside .category[for="cat_1_radio"],
+#cat_2_radio:checked ~ aside .category[for="cat_2_radio"],
+#cat_3_radio:checked ~ aside .category[for="cat_3_radio"],
+#cat_4_radio:checked ~ aside .category[for="cat_4_radio"] {
+	background-color: dimgray;
+	color: white;
+}
+
+.scale {
+	display: inline-block;
+	width: 80%;
+}
+
+.rate::after {
+	content: attr(data-rate);
+	float: right;
+}
+
+.scale div {
+	height: 15px;
+	border: 1px solid gray;
+}
+
+.rate[data-rate="10"] .scale div,
+.rate[data-rate="9"] .scale div,
+.rate[data-rate="8"] .scale div {
+	background: linear-gradient(90deg, lightgreen, white);
+}
+
+.rate[data-rate="7"] .scale div,
+.rate[data-rate="6"] .scale div,
+.rate[data-rate="5"] .scale div {
+	background: linear-gradient(90deg, yellow, white);
+}
+
+.rate[data-rate="4"] .scale div,
+.rate[data-rate="3"] .scale div,
+.rate[data-rate="2"] .scale div,
+.rate[data-rate="1"] .scale div {
+	background: linear-gradient(90deg, red, white);
+}
+
+.rate[data-rate="10"] .scale div {
+	width: 100%;
+}
+
+.rate[data-rate="9"] .scale div {
+	width: 90%;
+}
+
+.rate[data-rate="8"] .scale div {
+	width: 80%;
+}
+
+.rate[data-rate="7"] .scale div {
+	width: 70%;
+}
+
+.rate[data-rate="6"] .scale div {
+	width: 60%;
+}
+
+.rate[data-rate="5"] .scale div {
+	width: 50%;
+}
+
+.rate[data-rate="4"] .scale div {
+	width: 40%;
+}
+
+.rate[data-rate="3"] .scale div {
+	width: 30%;
+}
+
+.rate[data-rate="2"] .scale div {
+	width: 20%;
+}
+
+.rate[data-rate="1"] .scale div {
+	width: 10%;
+}
+
+.rate[data-rate="10"]{
+	order: 10;
+}
+
+.rate[data-rate="9"]{
+	order: 9;
+}
+
+.rate[data-rate="8"]{
+	order: 8;
+}
+
+.rate[data-rate="7"]{
+	order: 7;
+}
+
+.rate[data-rate="6"]{
+	order: 6;
+}
+
+.rate[data-rate="5"]{
+	order: 5;
+}
+
+.rate[data-rate="4"]{
+	order: 4;
+}
+
+.rate[data-rate="3"]{
+	order: 3;
+}
+
+.rate[data-rate="2"]{
+	order: 2;
+}
+
+.rate[data-rate="1"]{
+	order: 1;
+}
+
+#desc:checked ~ .rating {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.rate > div:first-child {
+	margin-bottom: 5px;
+}
+
+.rate {
+	margin-bottom: 10px;
+}
+
+.right_sidebar > div:first-child {
+	text-transform: uppercase;
+	color: red;
+	font-size: 20px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.right_sidebar {
+	margin: 5px 0px auto 5px;
+	padding: 5px 5px 0px 5px;
+	background-color: lightgray;
+}
+
+.right_sidebar > label,
+.right_sidebar > input {
+	float: right;
+	font-size: 15px;
+}
+
+
+
+.rating {
+	clear: both;
+	padding-top: 20px;
+}

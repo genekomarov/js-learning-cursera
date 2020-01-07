@@ -1,0 +1,232 @@
+html, body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.product_container {
+	width: 250px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+}
+
+.photo {
+	height: 400px;
+	line-height: 400px;
+	margin-bottom: 10px;
+}
+
+.photo img {
+	vertical-align: bottom;
+	width: 100%;
+}
+
+.name div {
+	font-size: 1.2em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.category a {
+	font-size: 0.7em;
+	color: 	#505050;
+}
+
+.price, .old_price {
+	display: inline;
+}
+
+.price {
+	font-size: : 1.2em;
+	font-weight: bold;
+	color: 	#B22222;
+}
+
+.old_price {
+	text-decoration: line-through;
+	font-size: 0.8em;
+}
+
+.price span::after, .old_price span::after {
+	content: " р.";
+}
+
+.description {
+	font-size: 0.8em;
+}
+
+/*----grid---------------*/
+.main {
+	margin: 0px auto;
+}
+
+@media (min-width: 1100px) {
+	.main {
+		width: 1100px;
+	}
+}
+
+@media (max-width: 1100px) and (min-width: 830px) {
+	.main {
+		width: 830px;
+	}
+}
+
+@media (max-width: 830px) {
+	.main {
+		width: 550px;
+	}
+}
+
+
+
+/*----star raiting--------*/
+.grace_scale {
+	overflow: hidden;
+	display: inline-block;
+	margin: 10px 0;
+}
+
+.grace_scale label::before {
+	float: right;
+	content: "";
+	display: inline-block;
+	height: 20px;
+	width: 10px;
+	background: url("./img/unchecked.svg") no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.grace_scale label.reverse_star::before {
+	transform: scaleX(-1);
+}
+
+.grace_scale input:checked + label::before,
+.grace_scale input:checked ~ label::before {
+	background: url("./img/checked.svg") no-repeat;
+	background-size: cover;
+}
+
+.grace_scale input:checked + label:hover::before,
+.grace_scale input:checked ~ label:hover::before,
+.grace_scale label:hover::before,
+.grace_scale label:hover ~ label::before {
+	background: url("./img/focused.svg") no-repeat;
+	background-size: cover;
+}
+
+.grace_scale input:checked + label:active::before,
+.grace_scale input:checked ~ label:active::before,
+.grace_scale label:active::before,
+.grace_scale label:active ~ label::before {
+	background: url("./img/actived.svg") no-repeat;
+	background-size: cover;
+}
+
+/*-----Имя, Картинка-------*/
+/*.name a:hover {
+	color: red;
+}
+
+.photo img:hover {
+	opacity: 0.7;
+}*/
+
+.product_container:hover .name a {
+	color: red;
+}
+
+.product_container:hover .photo img {
+	opacity: 0.7;
+}
+
+
+/*--------view---------*/
+input{
+	display: none;
+}
+
+#tile_label:before {
+	display: inline-block;
+	content: "";
+	width: 20px;
+	height: 20px;
+	background: url("./img/tile.svg") no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+#list_label:before {
+	display: inline-block;
+	content: "";
+	width: 20px;
+	height: 20px;
+	background: url("./img/list.svg") no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+input.view_mode:checked + label {
+	opacity: 1;
+}
+
+.view_mode + label {
+	margin-left: 10px;
+	opacity: 0.5;
+}
+
+
+span.view_mode {
+	font-size: 0.9em;
+	padding: 10px;
+}
+
+
+input#list:checked ~ main .product_container {
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+}
+
+input#list:checked ~ main .photo {
+	height: inherit;
+	line-height: inherit;
+	width: 150px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+input#list:checked ~ main .photo img {
+	vertical-align: top
+}
+
+input#list:checked ~ main .second_block {
+	display: inline-block;
+	width: 350px;
+	margin: 0 10px;
+}
+
+
+input#list:checked ~ main .description {
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+
+input#list:checked ~ main .description p {
+	margin: 0;
+}
+
+header, footer {
+	text-align: center;
+}
+
+header p {
+	font-size: 1.2em;
+}
+
+footer p {
+	font-size: 0.8em;
+	margin-bottom: 30px;
+}

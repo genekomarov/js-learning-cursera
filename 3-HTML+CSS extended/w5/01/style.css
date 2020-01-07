@@ -1,0 +1,191 @@
+html {
+	background-color: white;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0 auto;
+
+	width: 1020px;
+	padding: 18px;
+	background-color: #f1f1f1;
+	background-clip: content-box;
+}
+
+button {
+	border: none;
+}
+
+header {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.logo {
+	margin-right: 70px;
+}
+
+.carousel {
+	display: flex;
+	align-items: center;
+
+}
+
+.carousel div {
+	flex-basis: 190px
+}
+
+.carousel article {
+	flex-basis: 640px;
+	text-align: center;
+}
+
+.carousel p {
+	text-align: left;
+	font-size: 40px;
+}
+
+.carousel img {
+	width: 100%;
+}
+
+.round-button {
+	background-color: #ffe434;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.carousel .round-button::before {
+	content: url("./images/arrow.svg");
+	width: 15px;
+	height: 27px;
+	margin-right: 3px;
+}
+
+.carousel > div:last-child .round-button::before {
+	transform: scale(-1, 1);
+	margin-right: -3px;
+}
+
+.carousel > div:last-child {
+ 	position: relative;
+ 	right: 10px;
+}
+
+.carousel > div:first-child {
+ 	position: relative;
+ 	left: 10px;
+}
+
+.shadow {
+	box-shadow: 1px 1px 2px #ff5e00;
+}
+
+.video {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+.video img {
+	width: 640px;
+}
+
+.video-title {
+	width: 640px;
+	background-color: rgba(0, 0, 0, 50%);
+	position: absolute;
+	font-size: 27px;
+	text-align: center;
+	color: white;
+	padding: 5px 0;
+}
+
+.play-button {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background-color: #ffe434;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.play-button:hover,
+.round-button:hover {
+	opacity: .8;
+}
+
+.play-button::before {
+	content: url("./images/play.svg");
+	width: 43px;
+	height: 70px;
+	margin-left: 15px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 45px;
+}
+
+h1, h2 {
+	font-weight: normal;
+}
+
+h2 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 30px;
+}
+
+.benefits ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: baseline;
+}
+
+.benefits li {
+	box-sizing: border-box;
+	width: 250px;
+	list-style-type: none;
+	padding: 20px;
+}
+
+section, aside {
+	margin-bottom: 60px;
+}
+
+main > p {
+	text-align: center;
+	font-size: 40px;
+}
+
+
+aside > button {
+	width: 300px;
+	height: 70px;
+	text-align: center;
+	border-radius: 15px;
+	background: linear-gradient(0deg, #ffe434, #ffed79);
+	color: #525252;
+	font-size: 35px;
+}
+
+aside {
+	text-align: center;
+}
+
+aside > button:hover {
+	background: linear-gradient(0deg, #ffe121, #fff6bd);
+}

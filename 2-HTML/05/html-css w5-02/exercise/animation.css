@@ -1,0 +1,138 @@
+.sun {
+	animation: 	sun_rotate 20s linear infinite;
+}
+
+@keyframes sun_rotate {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.sun-wrapper{
+	animation: 	sunrising 60s linear infinite;
+}
+
+@keyframes sunrising {
+	from {
+		transform-origin: 50% 100%;
+	}
+	to {
+		transform-origin: 50% 100%;
+		transform: rotate(1turn);
+	}
+}
+
+.ship {
+	animation: ship_moving 30s linear infinite;
+}
+
+@keyframes ship_moving {
+	from {
+		transform: translateX(100px);
+	}
+	90% {
+		transform: translateX(-500px);
+	}
+	to {
+		transform: translateX(-500px);
+		animation-play-state: paused;
+	}
+}
+
+.smoke-1 {
+	animation: smoke_away 3s cubic-bezier(.25,.75,.75,.25) 0s infinite
+}
+.smoke-2 {
+	animation: smoke_away 3s cubic-bezier(.25,.75,.75,.25) 1s infinite
+}
+.smoke-3 {
+	animation: smoke_away 3s cubic-bezier(.25,.75,.75,.25) 2s infinite
+}
+
+@keyframes smoke_away {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		transform: 	translateY(-30px)
+					scale(3);
+	}
+}
+
+.box_front {
+	animation: day_time 60s linear infinite;
+}
+
+@keyframes day_time {
+	0%,100% {
+		background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+	}
+	25%,75% {
+		background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+	}
+
+	50% {
+		background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+	}
+}
+
+.cloud-1 {
+	animation: cloud_1_flys 20s linear -5s infinite;
+}
+.cloud-2 {
+	animation: cloud_2_flys 15s linear -10s infinite;
+}
+.cloud-3 {
+	animation: cloud_3_flys 10s linear -15s infinite;
+}
+.cloud-4 {
+	animation: cloud_4_flys 5s linear -20s infinite;
+}
+
+@keyframes cloud_1_flys {
+	from {
+		transform: 	translateX(-50px)
+					scale(0.2);
+	}
+	to {
+		transform: 	translateX(700px)
+					scale(0.2);
+	}
+}
+
+@keyframes cloud_2_flys {
+	from {
+		transform: 	translateX(-50px)
+					scale(-0.4,0.4);
+	}
+	to {
+		transform: 	translateX(700px)
+					scale(-0.4,0.4);
+	}
+}
+
+@keyframes cloud_3_flys {
+	from {
+		transform: 	translateX(-50px)
+					scale(0.6);
+	}
+	to {
+		transform: 	translateX(700px)
+					scale(0.6);
+	}
+}
+
+@keyframes cloud_4_flys {
+	from {
+		transform: 	translateX(-50px)
+					scale(-0.8,0.8);
+	}
+	to {
+		transform: 	translateX(700px)
+					scale(-0.8,0.8);
+	}
+}

@@ -1,0 +1,30 @@
+.animation {
+	
+	height: 150px;
+	width: 150px;
+	background-color: #f00;
+	transition: background-color 500ms linear;
+	animation: red_square 3s linear infinite alternate forwards;
+}
+
+.animation:hover {
+	background-color: #ff0;
+}
+
+@keyframes red_square {
+	0% {
+
+	}
+	25% {
+		transform: 	translate(100px, 0);
+	}
+	50% {
+		transform: 	translate(100px, 100%);
+	}
+	75%,100% {
+		transform: 	translate(100px, 100%)
+					scale(2,2)
+					rotate(145deg);
+		animation-play-state: paused;	
+	}
+}
