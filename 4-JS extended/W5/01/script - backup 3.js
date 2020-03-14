@@ -10,21 +10,21 @@ function validateForm (params) {
 	
 	var form = document.getElementById(formId);
 	form.addEventListener('submit', formSubmitEvent);
-	form.addEventListener('blur', inputBlurEvent, true);
-	form.addEventListener('focus', inputFocusEvent, true);
+
 
 	var inputs = Array.from(document.querySelectorAll('#' + formId + ' > input'));
 	
+	inputs.forEach((element) => {
+		element.addEventListener('blur', inputBlurEvent, true);
+		element.addEventListener('focus', inputFocusEvent, true);
+	});
+	
 	function inputBlurEvent (event) {
-		if (event.target.tagName == "INPUT") {
-			inputCheck(event.target);
-		}
+		inputCheck(event.target);
 	};
 
 	function inputFocusEvent (event) {
-		if (event.target.tagName == "INPUT") {
-			event.target.classList.remove(inputErrorClass);
-		}
+		event.target.classList.remove(inputErrorClass);
 	};
 
 	function formSubmitEvent (event) {
@@ -68,19 +68,9 @@ function validateForm (params) {
 						break;
 					case 'number':
 						var re = /^(0$|-?[1-9]\d*)$/gi;
-						if (re.test(e.value) == false) {
-							e.classList.add(inputErrorClass); err = true;
-						}
+						if (re.test(e.value) == false) {e.classList.add(inputErrorClass); err = true;}
 						else {
-							
-							if (e.dataset.hasOwnProperty('validatorMin')) {
-								if (e.value < parseInt(e.dataset.validatorMin)) {e.classList.add(inputErrorClass); err = true;}
-							}
-
-							if (e.dataset.hasOwnProperty('validatorMax')) {
-								if (e.value > parseInt(e.dataset.validatorMax)) {e.classList.add(inputErrorClass); err = true;}
-							}
-
+							if (e.value < e.dataset.validatorMin || e.value > e.dataset.validatorMax) {e.classList.add(inputErrorClass); err = true;}
 						}
 						break;
 					case 'regexp':
